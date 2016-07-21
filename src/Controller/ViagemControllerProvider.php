@@ -15,12 +15,12 @@ class ViagemControllerProvider implements ControllerProviderInterface
             return $app->redirect('/');
         });
 
-        $controllers->get('/nova', function (Application $app) {
+        $controllers->get('/criar', function (Application $app) {
             return $app['twig']->render('create-travel.twig');
         })->bind('create-travel');
 
-        $controllers->get('/listar', function (Application $app) {
-            return $app['twig']->render('create-travel.twig');
+        $controllers->get('/pesquisar', function (Application $app) {
+            return $app['twig']->render('search-travel.twig');
         })->bind('find-travel');
 
         return $controllers;
