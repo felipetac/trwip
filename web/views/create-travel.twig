@@ -9,7 +9,11 @@
                         <h3 class="title pull-left animated growIn slower">Selecione a melhor imagem</h3>
                     </header>
                     <div class="row">
-                        <div class="col-md-6">
+                       <div class="clearfix">
+                        `   <input type="submit" value="Carregar" class="t-btn btn-red">
+                        </div>
+                        <br />
+                        <div class="col-md-12" >
                             <img src="../images/features-img-2.jpg">
                         </div>
                     </div>
@@ -40,27 +44,31 @@
                                     <h4>Destino</h4>
                                 </div>
                                 <div class="bookingform">
-                                    <form action="#">
+                                    <form action="./salvar-destino" method="post">
                                         <fieldset>
                                             <div class="field-separator clearfix">
-                                                <label>Continente</label>
-                                                <input type="text" class="form-control" placeholder="Informe o continente">
+                                                <label for="txtContinente">Continente</label>
+                                                <input type="text" id="txtContinente" class="form-control" placeholder="Informe o continente">                                                
                                             </div>
                                             <div class="field-separator clearfix">
-                                                <label>País</label>
-                                                <input type="text" class="form-control" placeholder="Informe o país">
+                                                <label for="txtPais">País</label>
+                                                <input type="text" id="txtPais" class="form-control" placeholder="Informe o país">
                                             </div>
                                             <div class="field-separator clearfix">
-                                                <label>Estado</label>
-                                                <input type="text" class="form-control" placeholder="Informe o estado/distrito">
+                                                <label for="txtEstado">Estado</label>
+                                                <input type="text" id="txtEstado" class="form-control" placeholder="Informe o estado/distrito">
                                             </div>
                                             <div class="field-separator clearfix">
-                                                <label>Cidade</label>
-                                                <input type="text" class="form-control" placeholder="Informe a cidade">
+                                                <label for="txtCidade">Cidade</label>
+                                                <input type="text" id="txtCidade" class="form-control" placeholder="Informe a cidade">
                                             </div>
                                             <div class="field-separator clearfix">
-                                                <label>Hotel</label>
-                                                <input type="text" class="form-control" placeholder="Informe o link do site do hotel">
+                                                <label for="txtHotel">Hotel</label>
+                                                <input type="text" id="txtHotel" class="form-control" placeholder="Informe o link do site do hotel">
+                                            </div>
+                                            <div class="field-separator clearfix">
+                                                <label for="txtItinerario">Itinerário</label>
+                                                <textarea id="txtItinerario" class="question-form"> Descreva pontos importantes para a ida ou para a volta</textarea> 
                                             </div>
                                         </fieldset>
                                         <div class="clearfix">
@@ -74,40 +82,51 @@
                                     <h4>Perfil</h4>
                                 </div>
                                 <div class="bookingform">
-                                    <form action="#">
+                                    <form action="./salvar-perfil" method="post">
                                         <fieldset>
-                                            <div class="field-separator clearfix">
-                                                <div class="field-separator clearfix">
-                                                <label>Kids</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
+                                            <div class="field-inline">
+                                                <label for="optKids">Kids
+                                                    <input type="checkbox" id="optKids" class="checkbox-radio-listing">
+                                                </label>                                                
+                                            </div>
+                                            <div class="field-inline">
+                                                <label for="optNegocio">Negócio
+                                                    <input type="checkbox" id="optNegocio" class="checkbox-radio-listing">
+                                                </label>
+                                            </div>
+                                            <div class="field-inline">
+                                                <label for="optCult">Cult
+                                                    <input type="checkbox" id="optCult" class="checkbox-radio-listing">
+                                                </label>
+                                            </div>
+                                            <div class="field-inline">
+                                                <label for="optReligiosa">Religiosa
+                                                    <input type="checkbox" id="optReligiosa" class="checkbox-radio-listing">
+                                                </label>
+                                            </div>
+                                            <div class="field-inline">
+                                                <label for="optLGBT">LGBT
+                                                    <input type="checkbox" id="optLGBT" class="checkbox-radio-listing">
+                                                </label>
+                                            </div>
+                                            <div class="field-inline">
+                                                <label for="optComida">Comida
+                                                    <input type="checkbox" id="optComida" class="checkbox-radio-listing">
+                                                </label>                                                
+                                            </div>
+                                            <div class="field-inline">
+                                                <label for="optDanca">Dança
+                                                    <input type="checkbox" id="optDanca" class="checkbox-radio-listing">
+                                                </label>
+                                            </div>
+                                            <div class="field-inline">
+                                                <label for="opt60+">60+
+                                                    <input type="checkbox" id="opt60+" class="checkbox-radio-listing">
+                                                </label>
                                             </div>
                                             <div class="field-separator clearfix">
-                                                <label>Negócio</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
-                                            </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Cult</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
-                                            </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Religiosa</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
-                                            </div>
-                                            <div class="field-separator clearfix">
-                                                <label>LGBT</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
-                                            </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Gastronômica</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
-                                            </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Dança</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
-                                            </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Parceiro</label>
-                                                <textarea class="contact-from">Descreva o parceiro ideal de viagem</textarea>
+                                                <label for="txtParceiro">Parceiro</label>
+                                                <textarea id="txtParceiro" class="question-form">Descreva o parceiro ideal de viagem</textarea>
                                             </div>
                                         </fieldset>
                                         <div class="clearfix">
@@ -121,35 +140,47 @@
                                     <h4>Transporte</h4>
                                 </div>
                                 <div class="bookingform">
-                                    <form action="#">
+                                    <form action="./salvar-transporte" method="post">
                                         <fieldset>
-                                            <div class="field-separator clearfix">
-                                                <label>Avião</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
+                                            <div class="field-inline">
+                                                <label for="optAviao">Avião
+                                                    <input type="checkbox" id="optAviao" class="checkbox-radio-listing">
+                                                </label>
                                             </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Ônibus</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
+                                            <div class="field-inline">
+                                                <label for="optOnibus">Ônibus
+                                                    <input type="checkbox" id="optOnibus" class="checkbox-radio-listing">
+                                                </label>
                                             </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Carro</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
+                                            <div class="field-inline">
+                                                <label for="optOnibus">Carro
+                                                    <input type="checkbox" id="optOnibus" class="checkbox-radio-listing">
+                                                </label>
                                             </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Barco</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
+                                            <div class="field-inline">
+                                                <label for="optCarro">Ônibus
+                                                    <input type="checkbox" id="optCarro" class="checkbox-radio-listing">
+                                                </label>
                                             </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Metrô</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
+                                            <div class="field-inline">
+                                                <label for="optBarco">Barco
+                                                    <input type="checkbox" id="optBarco" class="checkbox-radio-listing">
+                                                </label>
                                             </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Trem</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
+                                            <div class="field-inline">
+                                                <label for="optMetro">Metrô
+                                                    <input type="checkbox" id="optMetro" class="checkbox-radio-listing">
+                                                </label>
                                             </div>
-                                            <div class="field-separator clearfix">
-                                                <label>Bicicleta</label>
-                                                <input type="checkbox" class="checkbox-radio-listing">
+                                            <div class="field-inline">
+                                                <label for="optTrem">Trem
+                                                    <input type="checkbox" id="optTrem" class="checkbox-radio-listing">
+                                                </label>
+                                            </div>
+                                            <div class="field-inline">
+                                                <label for="optBicicleta">Bicicleta
+                                                    <input type="checkbox" id="optBicicleta" class="checkbox-radio-listing">
+                                                </label>
                                             </div>
                                         </fieldset>
                                         <div class="clearfix">
@@ -163,43 +194,42 @@
                                     <h4>Organização</h4>
                                </div>
                                 <div class="bookingform">
-                                    <form action="#">
+                                    <form action="./salvar-organizacao" method="post">
                                         <fieldset>
                                             <div class="field-separator clearfix">
                                                 <label>Orçamento</label>
-                                                <input type="number" class="form-control" placeholder="Até quanto deve custar?">
+                                                <input type="number" name="valOrcamento" class="form-control" placeholder="Até quanto deve custar?">
                                             </div>
                                             <div class="field-separator clearfix">
                                                 <label>Mínimo de pessoas</label>
-                                                <input type="number" class="form-control" placeholder="Quantas pessoas no mínimo">
+                                                <input type="number" name="numMinimo" class="form-control" placeholder="Quantas pessoas no mínimo">
                                             </div>
                                             <div class="field-separator clearfix">
                                                 <label>Máximo de pessoas</label>
-                                                <input type="number" class="form-control" placeholder="Qual o limite de pessoas">
+                                                <input type="number" name="numMaximo" class="form-control" placeholder="Qual o limite de pessoas">
                                             </div>
                                             <div class="field-separator clearfix">
                                                 <label>Início</label>
                                                 <div class="input-group input-append date date-picker" >
-                                                    <input type="text" class="form-control" name="date">
+                                                    <input type="text" name="datCheckin" class="form-control">
                                                     <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                                 </div>
                                             </div>
                                             <div class="field-separator clearfix">
                                                 <label>Término</label>
                                                 <div class="input-group input-append date date-picker" >
-                                                    <input type="text" class="form-control" name="date">
+                                                    <input type="text" name="datCheckout" class="form-control">
                                                     <span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
                                                 </div>
                                             </div>
                                         </fieldset>
                                         <div class="clearfix">
-                                            <input type="submit" value="Concluir" class="t-btn btn-red">
+                                            <input type="submit" value="Salvar" class="t-btn btn-red">
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

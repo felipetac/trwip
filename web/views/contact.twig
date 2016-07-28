@@ -4,37 +4,51 @@
     <div class="booking-criteria">
         <h4>Entre em contato</h4>
     </div>
-    <div class="container">
+    <div class="container animatedParent clearfix">
         <div class="row">
-            <div class="col-md-8 col-sm-6">
-                <div class="row">
-                    <div class="col-md-6">
-                        <form action="/enviar">
-                            <fieldset>
-                                <div class="field-separator clearfix">
-                                    <label>Nome:</label>
-                                    <input type="text" class="form-control" placeholder="Seu nome">
-                                </div>
-                                <div class="field-separator clearfix">
-                                    <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Seu email">
-                                </div>
-                                <div class="field-separator clearfix">
-                                    <label>Telefone</label>
-                                    <input type="text" class="form-control" placeholder="Seu telefone">
-                                </div>
-                                <div class="field-separator clearfix">
-                                    <label>Mensagem</label>
-                                    <textarea>Sua mensagem</textarea>
-                                </div>
-                                <div class="clearfix">
-                                    <input type="submit" value="Enviar" class="t-btn btn-red">
-                                </div>
-                                <br>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form action="/enviar" class="contact-form">
+                    <fieldset>
+                        <div class="field-separator clearfix">
+                            <label for="txtNome">Nome:
+                                <input type="text" id="txtNome" class="form-control" placeholder="Seu nome">
+                            </label>                                    
+                        </div>
+                        <div class="field-separator clearfix">
+                            <label for="txtEmail">Email
+                                <input type="text" id="txtEmail" class="form-control" placeholder="Seu email">
+                            </label>
+                        </div>
+                        <div class="field-separator clearfix">
+                            <label for="txtTelefone">Telefone
+                                <input type="text" id="txtTelefone" class="form-control" placeholder="Seu telefone">
+                            </label>
+                        </div>
+                        <div class="field-separator clearfix">
+                            <label for="txtMensagem">Mensagem
+                                <textarea id="txtMensagem" class="form-control">Sua mensagem</textarea>
+                            </label>
+                        </div>
+                        <div class="clearfix">
+                            <input type="submit" value="Enviar" class="t-btn btn-red">
+                        </div>
+                        <br>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xl-12">
+                <section class="widget contact-widget animated flipInX slower clearfix">
+                    <h5 class="widget-title">Queremos falar com vc!</h5>
+                    <p>
+                        <img src="../images/avatar.jpg"><span> Carlos</span>
+                    </p>
+                    <p>
+                        <img src="../images/avatar.jpg"><span> Carlos</span>
+                    </p>
+                    <p>
+                        <img src="../images/avatar.jpg"><span> Carlos</span>
+                    </p>
+                </section>
             </div>
         </div>
     </div>
