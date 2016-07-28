@@ -19,23 +19,28 @@ class ViagemControllerProvider implements ControllerProviderInterface
         });
 
         $controllers->get('/criar', function (Application $app) {
-            return $app['twig']->render('create-travel.twig');
+            $sql = "SELECT * FROM perfil";
+            $perfis = $app['db']->fetchAll($sql);
+
+            $sql = "SELECT * FROM transporte";
+            $transportes = $app['db']->fetchAll($sql);
+
+            return $app['twig']->render('create-travel.twig', array('perfis' => $perfis,
+                                                                    'transportes' => $transportes));
         })->bind('create-travel');
 
         $controllers->post('/salvar-organizacao', function (Request $req, Application $app) {
             $data = $req->request->all();
 
-            $post = new \SON\Entity\Post;
-            $post->setTitulo($data['titulo']);
-            $post->setConteudo($data['conteudo']);
+            $post = new \TRWIP\Model\Viagem;
+            //$post->setXXX($data['titulo']);
+            
+            //$em->persist($post);
+            //$em->flush();
 
-            $em->persist($post);
-            $em->flush();
-
-            if($post->getId()) {
+            if ($post->getId()) {
                 return $app->redirect($app['url_generator']->generate('sucesso'));
-            }
-            else {
+            } else {
                 $app->abort(500, 'Erro de processamento');
             }
         })->bind('save-organization');

@@ -84,46 +84,13 @@
                                 <div class="bookingform">
                                     <form action="./salvar-perfil" method="post">
                                         <fieldset>
+                                            {% for perfil in perfis %}
                                             <div class="field-inline">
-                                                <label for="optKids">Kids
-                                                    <input type="checkbox" id="optKids" class="checkbox-radio-listing">
+                                                <label for="opt{{ perfil.des_perfil|e }}">{{ perfil.des_perfil|e }}
+                                                    <input type="checkbox" id="opt{{ perfil.des_perfil|e }}" class="checkbox-radio-listing">
                                                 </label>                                                
                                             </div>
-                                            <div class="field-inline">
-                                                <label for="optNegocio">Negócio
-                                                    <input type="checkbox" id="optNegocio" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optCult">Cult
-                                                    <input type="checkbox" id="optCult" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optReligiosa">Religiosa
-                                                    <input type="checkbox" id="optReligiosa" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optLGBT">LGBT
-                                                    <input type="checkbox" id="optLGBT" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optComida">Comida
-                                                    <input type="checkbox" id="optComida" class="checkbox-radio-listing">
-                                                </label>                                                
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optDanca">Dança
-                                                    <input type="checkbox" id="optDanca" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="opt60+">60+
-                                                    <input type="checkbox" id="opt60+" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
+                                            {% endfor %}
                                             <div class="field-separator clearfix">
                                                 <label for="txtParceiro">Parceiro</label>
                                                 <textarea id="txtParceiro" class="question-form">Descreva o parceiro ideal de viagem</textarea>
@@ -142,46 +109,13 @@
                                 <div class="bookingform">
                                     <form action="./salvar-transporte" method="post">
                                         <fieldset>
-                                            <div class="field-inline">
-                                                <label for="optAviao">Avião
-                                                    <input type="checkbox" id="optAviao" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optOnibus">Ônibus
-                                                    <input type="checkbox" id="optOnibus" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optOnibus">Carro
-                                                    <input type="checkbox" id="optOnibus" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optCarro">Ônibus
-                                                    <input type="checkbox" id="optCarro" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optBarco">Barco
-                                                    <input type="checkbox" id="optBarco" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optMetro">Metrô
-                                                    <input type="checkbox" id="optMetro" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optTrem">Trem
-                                                    <input type="checkbox" id="optTrem" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
-                                            <div class="field-inline">
-                                                <label for="optBicicleta">Bicicleta
-                                                    <input type="checkbox" id="optBicicleta" class="checkbox-radio-listing">
-                                                </label>
-                                            </div>
+                                        {% for transporte in transportes %}
+                                        <div class="field-inline">
+                                            <label for="opt{{ transporte.des_transporte|e }}">{{ transporte.des_transporte|e }}
+                                                <input type="checkbox" id="opt{{ transporte.des_transporte|e }}" class="checkbox-radio-listing">
+                                            </label>                                                
+                                        </div>
+                                        {% endfor %}
                                         </fieldset>
                                         <div class="clearfix">
                                             <input type="submit" value="Salvar" class="t-btn btn-red">

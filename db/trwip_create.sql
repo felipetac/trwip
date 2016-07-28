@@ -4,7 +4,7 @@ seq_usuario INT(6) NOT NULL AUTO_INCREMENT COMMENT 'Identificacao do usuario do 
 ,eml_acesso VARCHAR(50) NOT NULL COMMENT 'Email usado para acessar a plataforma'
 ,val_senha VARCHAR(60) NOT NULL COMMENT 'Senha segura do usuario - criptografada'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_usuario)
 )
 ENGINE = InnoDB
@@ -25,7 +25,7 @@ seq_viajante INT(6) NOT NULL COMMENT 'Identificacao do viajante'
 ,cod_cidade INT(6) NOT NULL COMMENT 'Identifica a cidade, segundo o IBGE'
 ,med_foto BLOB COMMENT 'Foto do viajante'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_viajante)
 ,FOREIGN KEY (seq_viajante) references usuario(seq_usuario)
 )
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS idioma (
 seq_idioma INT(2) NOT NULL AUTO_INCREMENT COMMENT 'Sequencial que identifica o idioma'
 ,des_idioma VARCHAR(100) NOT NULL COMMENT 'Descricao do idioma. Ex: Russo, Indi'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY (seq_idioma)
 )
 ENGINE = InnoDB
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS viajante_idioma (
 seq_viajante INT(6) NOT NULL COMMENT 'Idenficacao do viajante'
 ,seq_idioma INT(2) NOT NULL COMMENT 'Identificacao do idioma'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_viajante, seq_idioma)
 ,FOREIGN KEY (seq_viajante) references viajante(seq_viajante)
 ,FOREIGN KEY (seq_idioma) references idioma(seq_idioma)
@@ -67,7 +67,7 @@ seq_viagem INT(6) NOT NULL COMMENT 'Identifcacao da viagem a ser avalidada'
 ,val_parceria TINYINT NOT NULL DEFAULT 0 COMMENT 'Quanto essa pessoa contribui para o bem-estar de todos'
 ,txt_observacao TEXT COMMENT 'Outras informacoes relevantes sobre o viajante nessa viagem'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_viagem, seq_avaliador)
 ,FOREIGN KEY (seq_avaliador) references viajante(seq_viajante)
 )
@@ -88,7 +88,7 @@ seq_viagem INT(6) NOT NULL AUTO_INCREMENT COMMENT 'Identificacao da viagem'
 ,txt_informacoes TEXT COMMENT 'Que outras informacoes, atracoes ou dicas para essa viagem'
 ,med_foto BLOB NOT NULL COMMENT 'Foto que caracterize a viagem'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_viagem)
 ,FOREIGN KEY (seq_organizador) references viajante(seq_viajante)
 )
@@ -106,7 +106,7 @@ seq_viagem INT(6) NOT NULL COMMENT 'Identifcacao da viagem'
 ,url_hotel varchar(255) COMMENT 'URL do hotel referencia no destino'
 ,txt_itinerario TEXT COMMENT 'Informacoes relevantes para a ida ou a volta como cidades ate o destino final'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_viagem)
 ,FOREIGN KEY (seq_viagem) references viagem(seq_viagem)
 )
@@ -116,10 +116,10 @@ COLLATE = utf8_unicode_ci
 COMMENT = 'Relaciona as informacoes sobre o destino final da viagem';
 
 CREATE TABLE IF NOT EXISTS transporte (
-seq_transporte INT(2) NOT NULL COMMENT 'Identifcacao tipo de transporte'
+seq_transporte INT(2) NOT NULL AUTO_INCREMENT COMMENT 'Identifcacao tipo de transporte'
 ,des_transporte VARCHAR(100) NOT NULL COMMENT 'Descricao do transporte. Ex: Onibus, bicicleta'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_transporte)
 )
 ENGINE = InnoDB
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS viagem_transporte (
 seq_viagem INT(6) NOT NULL COMMENT 'Identifcacao da viagem'
 ,seq_transporte INT(2) NOT NULL COMMENT 'Identificacao do transporte utilizado. Ex: Carro, trem'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_viagem, seq_transporte)
 ,FOREIGN KEY (seq_viagem) references viagem(seq_viagem)
 ,FOREIGN KEY (seq_transporte) references transporte(seq_transporte)
@@ -142,10 +142,10 @@ COLLATE = utf8_unicode_ci
 COMMENT = 'Relaciona os transportes utilizados em uma viagem';
 
 CREATE TABLE IF NOT EXISTS perfil (
-seq_perfil INT(2) NOT NULL COMMENT 'Identifcacao perfil da viagem'
+seq_perfil INT(2) NOT NULL AUTO_INCREMENT COMMENT 'Identifcacao perfil da viagem'
 ,des_perfil VARCHAR(100) NOT NULL COMMENT 'Descricao do perfil. Ex: Kids, religiosa'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_perfil)
 )
 ENGINE = InnoDB
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS viagem_perfil (
 seq_viagem INT(6) NOT NULL COMMENT 'Identifcacao da viagem'
 ,seq_perfil INT(2) NOT NULL COMMENT 'Identificacao do perfil. Ex: Kids, cult'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_viagem, seq_perfil)
 ,FOREIGN KEY (seq_viagem) references viagem(seq_viagem)
 ,FOREIGN KEY (seq_perfil) references perfil(seq_perfil)
@@ -178,7 +178,7 @@ seq_viagem INT(6) NOT NULL COMMENT 'Identifcacao da viagem'
 ,val_atracao TINYINT NOT NULL DEFAULT 0 COMMENT 'Quao divertidas foram as atracoes'
 ,txt_observacao TEXT COMMENT 'Outras informacoes relevantes sobre a viagem'
 ,dat_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data em que o registro foi cadastrado'
-,dat_inativo DATETIME NOT NULL DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
+,dat_inativo DATETIME DEFAULT '0000-00-00' COMMENT 'Data em que o registro foi desativado'
 ,PRIMARY KEY(seq_viagem, seq_avaliador)
 ,FOREIGN KEY (seq_viagem) references viagem(seq_viagem)
 )
