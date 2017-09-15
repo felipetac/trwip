@@ -1963,13 +1963,13 @@ h5 {
 }
 .question-form input[type='text'],
 .question-form textarea {
-    border: 1px solid #e8e8e8;
-    padding: 5px;
-    width: 60%;
+    border: 10px solid #e8e8e8;
+    padding: 10px;
+    width: 100%;
     float: left;
     box-shadow: none;
     outline: none;
-    margin-bottom: 10px;
+    <!--margin-bottom: 10px;-->
     border-radius: 0;
 }
 .question-form input[type='submit'] {
