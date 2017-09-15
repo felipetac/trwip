@@ -17,16 +17,16 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // Our web handlers
 
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
+$app->get('/', function () use ($app) {
+    $app['monolog']->addDebug('logging output.');
+    return $app['twig']->render('index.twig');
 })->bind('index');
 
 $app->mount('/viagem', new Trwip\Controller\ViagemControllerProvider());
 
-$app->get('/contato', function() use($app) {
-  $app['monolog']->addDebug('enter in contact page.');
-  return $app['twig']->render('contact.twig');
+$app->get('/contato', function () use ($app) {
+    $app['monolog']->addDebug('enter in contact page.');
+    return $app['twig']->render('contact.twig');
 })->bind('contact');
 
 $app->run();
